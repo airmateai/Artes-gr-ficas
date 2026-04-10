@@ -1,1206 +1,610 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Artes Gráficas Canarias — Vinilos y Rótulos en Tenerife</title>
-  <meta name="description" content="Vinilos decorativos y rótulos personalizados para hogares y negocios en Tenerife. Vinilo ORACAL premium. Envío a todas las islas Canarias." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    /* ── RESET & BASE ─────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      font-family: 'Inter', sans-serif;
-      color: #1A1A1A;
-      background: #FFFFFF;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-    button { cursor: pointer; font-family: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vinilos decorativos y rótulos personalizados en Tenerife. Material ORACAL premium. Envío a toda Canarias.">
+<title>Artes Gráficas Canarias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#000;--white:#fff;--gray-bg:#F5F5F7;--gray-line:#D2D2D7;
+  --text-dark:#1D1D1F;--text-mid:#6E6E73;--text-light:#86868B;
+  --blue:#0071E3;--blue-h:#0077ED;
+  --f:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--black);color:var(--white);font-family:var(--f);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
 
-    /* ── TOKENS ───────────────────────────────────────────── */
-    :root {
-      --white: #FFFFFF;
-      --off-white: #F7F7F5;
-      --black: #1A1A1A;
-      --deep: #0D0D0D;
-      --terra: #C8714A;
-      --border: #E5E5E5;
-      --gray-mid: #6B6B6B;
-      --section-pad: 100px 24px;
-    }
+/* SMALL START — first letter of headlines smaller */
+.s-start::first-letter{font-size:.72em;letter-spacing:.01em}
 
-    /* ── TYPOGRAPHY ───────────────────────────────────────── */
-    .serif { font-family: 'Playfair Display', serif; }
-    h1, h2, h3 { line-height: 1.15; }
-    p { line-height: 1.7; }
+/* NAVBAR */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:900;height:48px;
+  display:flex;align-items:center;
+  background:rgba(0,0,0,.72);backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-inner{
+  width:100%;max-width:1200px;margin:0 auto;padding:0 22px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-weight:700;font-size:.8125rem;letter-spacing:.01em;color:rgba(255,255,255,.9)}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:400;color:rgba(255,255,255,.8);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:#fff}
+.burger{display:none;flex-direction:column;gap:4.5px;width:22px;background:none;border:none;cursor:pointer;padding:3px 0}
+.burger span{display:block;width:100%;height:1px;background:rgba(255,255,255,.85);transition:transform .28s,opacity .28s}
+.burger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.mobile-menu{
+  display:none;position:fixed;inset:0;top:48px;
+  background:rgba(0,0,0,.96);backdrop-filter:blur(20px);
+  z-index:899;padding:28px 22px;flex-direction:column;gap:0;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-size:1.125rem;font-weight:400;color:rgba(255,255,255,.75);
+  padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06);
+  transition:color .2s;
+}
+.mobile-menu a:hover{color:#fff}
+.mobile-menu .pill-blue{
+  margin-top:20px;text-align:center;justify-content:center;
+  font-size:1rem;padding:12px 24px;
+}
+@media(max-width:1024px){.nav-links{display:none}.burger{display:flex}}
 
-    /* ── UTILITY ──────────────────────────────────────────── */
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-      color: var(--terra); border: 1px solid var(--terra);
-      padding: 5px 12px; border-radius: 20px;
-    }
-    .badge-solid {
-      background: var(--terra); color: var(--white); border-color: var(--terra);
-    }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
-      padding: 14px 28px; border-radius: 4px; border: 2px solid transparent;
-      transition: all .2s ease; white-space: nowrap;
-    }
-    .btn-dark { background: var(--deep); color: var(--white); border-color: var(--deep); }
-    .btn-dark:hover { background: #222; border-color: #222; }
-    .btn-white { background: var(--white); color: var(--deep); border-color: var(--white); }
-    .btn-white:hover { background: var(--off-white); }
-    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,.6); }
-    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
-    .btn-outline-dark { background: transparent; color: var(--deep); border-color: var(--deep); }
-    .btn-outline-dark:hover { background: var(--deep); color: var(--white); }
+/* PILLS */
+.pill-blue{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blue);color:#fff;
+  padding:10px 22px;border-radius:980px;
+  font-size:.875rem;font-weight:600;letter-spacing:-.01em;
+  transition:background .2s,transform .15s;
+}
+.pill-blue:hover{background:var(--blue-h);transform:translateY(-1px)}
+.pill-outline-white{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:#fff;
+  padding:10px 22px;border-radius:980px;
+  border:1px solid rgba(255,255,255,.35);
+  font-size:.875rem;font-weight:600;letter-spacing:-.01em;
+  transition:border-color .2s,transform .15s;
+}
+.pill-outline-white:hover{border-color:#fff;transform:translateY(-1px)}
+.pill-outline-dark{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--text-dark);
+  padding:10px 22px;border-radius:980px;
+  border:1px solid rgba(0,0,0,.2);
+  font-size:.875rem;font-weight:600;letter-spacing:-.01em;
+  transition:border-color .2s,transform .15s;
+}
+.pill-outline-dark:hover{border-color:rgba(0,0,0,.5);transform:translateY(-1px)}
 
-    /* ── REVEAL ANIMATION ─────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: .1s; }
-    .reveal-delay-2 { transition-delay: .2s; }
-    .reveal-delay-3 { transition-delay: .3s; }
-    .reveal-delay-4 { transition-delay: .4s; }
+/* HERO */
+.hero{position:relative;width:100%;height:100svh;background:#000;overflow:hidden}
+#auroraCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.hero-content{
+  position:absolute;inset:0;z-index:5;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 24px;gap:0;
+}
+.hero-eyebrow{
+  font-size:.875rem;font-weight:400;letter-spacing:.04em;
+  color:rgba(255,255,255,.4);margin-bottom:18px;
+}
+.hero-h1{
+  font-size:clamp(2rem,5.5vw,3.5rem);font-weight:700;
+  line-height:1.05;letter-spacing:-.03em;color:#fff;
+  margin-bottom:18px;
+}
+.hero-h1::first-letter{font-size:.75em}
+.hero-sub{
+  font-size:clamp(.9375rem,1.8vw,1.1875rem);font-weight:400;
+  color:rgba(255,255,255,.6);line-height:1.55;
+  max-width:480px;margin:0 auto 36px;
+}
+.hero-sub::first-letter{font-size:.82em}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 1. TOPBAR                                               */
-    /* ─────────────────────────────────────────────────────── */
-    .topbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      height: 40px;
-      background: var(--deep);
-      display: flex; align-items: center;
-      font-size: 13px; color: rgba(255,255,255,.85);
-    }
-    .topbar-inner {
-      width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    }
-    .topbar-left { display: flex; align-items: center; gap: 6px; }
-    .topbar-center { display: none; }
-    .topbar-right a {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-size: 12px; font-weight: 600; color: #fff;
-      background: #25D366; padding: 4px 10px; border-radius: 3px;
-      transition: opacity .2s;
-    }
-    .topbar-right a:hover { opacity: .88; }
+/* SECTIONS */
+section{padding:120px 0}
+.container{max-width:1200px;margin:0 auto;padding:0 48px}
+@media(max-width:768px){section{padding:80px 0}.container{padding:0 22px}}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 2. NAVBAR                                               */
-    /* ─────────────────────────────────────────────────────── */
-    .navbar {
-      position: fixed; top: 40px; left: 0; right: 0; z-index: 999;
-      background: var(--white);
-      border-bottom: 1px solid transparent;
-      transition: border-color .3s, box-shadow .3s;
-    }
-    .navbar.scrolled {
-      border-bottom-color: var(--border);
-      box-shadow: 0 1px 12px rgba(0,0,0,.06);
-    }
-    .navbar-inner {
-      max-width: 1160px; margin: 0 auto; padding: 0 24px;
-      height: 68px;
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
-    }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo img { height: 38px; width: auto; display: block; }
-    .nav-links {
-      display: none;
-      align-items: center; gap: 32px;
-      font-size: 14px; font-weight: 500; color: var(--black);
-    }
-    .nav-links a { transition: color .2s; }
-    .nav-links a:hover { color: var(--terra); }
-    .nav-cta { display: none; }
-    .hamburger {
-      display: flex; flex-direction: column; gap: 5px;
-      background: none; border: none; padding: 4px;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--deep);
-      transition: all .25s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* PRODUCT SECTIONS */
+.prod-section{background:var(--black)}
+.prod-section.white{background:var(--white)}
+.prod-img-wrap{
+  width:100%;max-width:1000px;margin:0 auto 48px;
+  overflow:hidden;border-radius:12px;
+}
+.prod-img-wrap img{width:100%;height:auto;display:block}
+.prod-text{text-align:center}
+.prod-title-dark{font-size:clamp(2rem,4.5vw,3rem);font-weight:700;letter-spacing:-.025em;color:var(--text-dark);margin-bottom:14px;line-height:1.08}
+.prod-title-dark::first-letter{font-size:.72em}
+.prod-title-light{font-size:clamp(2rem,4.5vw,3rem);font-weight:700;letter-spacing:-.025em;color:#fff;margin-bottom:14px;line-height:1.08}
+.prod-title-light::first-letter{font-size:.72em}
+.prod-sub-dark{font-size:1.0625rem;color:var(--text-mid);line-height:1.55;max-width:480px;margin:0 auto 24px}
+.prod-sub-light{font-size:1.0625rem;color:rgba(255,255,255,.6);line-height:1.55;max-width:480px;margin:0 auto 24px}
+.link-blue{font-size:1.0625rem;color:var(--blue);font-weight:400;transition:text-decoration .2s}
+.link-blue:hover{text-decoration:underline}
 
-    /* Mobile menu */
-    .mobile-menu {
-      display: none;
-      position: fixed; top: 108px; left: 0; right: 0;
-      background: var(--white); border-bottom: 1px solid var(--border);
-      z-index: 998; padding: 20px 24px 28px;
-      flex-direction: column; gap: 0;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      display: block; padding: 14px 0;
-      font-size: 16px; font-weight: 500;
-      border-bottom: 1px solid var(--border);
-      color: var(--black);
-    }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu .btn { margin-top: 18px; width: 100%; }
+/* FEATURES */
+.features-section{background:var(--black);padding:120px 0}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);max-width:1000px;margin:0 auto}
+.feat-item{
+  background:var(--black);padding:40px 32px;text-align:center;
+  transition:background .25s;
+}
+.feat-item:hover{background:#0a0a0a}
+.feat-icon{width:40px;height:40px;margin:0 auto 18px;color:#fff;opacity:.85}
+.feat-title{font-size:1.0625rem;font-weight:600;color:#fff;margin-bottom:8px;letter-spacing:-.01em}
+.feat-title::first-letter{font-size:.78em}
+.feat-desc{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.55}
+@media(max-width:768px){.feat-grid{grid-template-columns:1fr}}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 3. HERO                                                 */
-    /* ─────────────────────────────────────────────────────── */
-    .hero {
-      background: var(--white);
-      margin-top: 108px;
-      padding: 72px 0 80px;
-      min-height: calc(100vh - 108px);
-      display: flex; align-items: center;
-    }
-    .hero-inner {
-      max-width: 1160px; margin: 0 auto; padding: 0 24px;
-      display: grid; grid-template-columns: 1fr; gap: 52px; align-items: center;
-    }
-    .hero-content {}
-    .hero-badge { margin-bottom: 24px; }
-    .hero-badge .badge-solid {
-      background: var(--terra); border-color: var(--terra); color: #fff;
-      font-size: 12px;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(38px, 5.5vw, 68px);
-      font-weight: 700; color: var(--deep);
-      margin-bottom: 20px; line-height: 1.1;
-    }
-    .hero-sub {
-      font-size: clamp(16px, 1.8vw, 19px); font-weight: 400;
-      color: var(--gray-mid); max-width: 500px;
-      margin-bottom: 36px;
-    }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
-    .trust-badges {
-      display: flex; flex-wrap: wrap; gap: 16px 32px;
-      padding-top: 36px; border-top: 1px solid var(--border);
-    }
-    .trust-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 13px; font-weight: 500; color: var(--gray-mid);
-    }
-    .trust-icon { width: 17px; height: 17px; flex-shrink: 0; }
-    .hero-visual { position: relative; }
-    .hero-visual-img {
-      width: 100%; height: 520px; object-fit: cover;
-      border-radius: 8px; display: block;
-    }
-    .hero-visual-badge {
-      position: absolute; bottom: 24px; left: 24px;
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 6px; padding: 14px 18px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .hvb-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px; font-weight: 700; color: var(--terra); line-height: 1;
-    }
-    .hvb-text { font-size: 12px; font-weight: 600; color: var(--black); line-height: 1.4; }
-    @media (min-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr 1fr; }
-    }
+/* GALLERY */
+.gallery-section{background:var(--white);text-align:center}
+.gallery-h{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--text-dark);letter-spacing:-.025em;margin-bottom:56px}
+.gallery-h::first-letter{font-size:.72em}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery-item{overflow:hidden;border-radius:8px;aspect-ratio:1}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.gallery-item:hover img{transform:scale(1.02)}
+@media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 4. GALERÍA                                              */
-    /* ─────────────────────────────────────────────────────── */
-    .gallery-section { padding: var(--section-pad); }
-    .section-header { text-align: center; margin-bottom: 56px; }
-    .section-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 4vw, 52px); font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .section-header p { color: var(--gray-mid); font-size: 17px; }
-    .gallery-grid {
-      columns: 3; column-gap: 16px;
-    }
-    .gallery-item {
-      break-inside: avoid; margin-bottom: 16px;
-      position: relative; overflow: hidden; border-radius: 6px;
-      cursor: pointer;
-    }
-    .gallery-item img {
-      width: 100%; display: block;
-      transition: transform .4s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.04); }
-    .gallery-overlay {
-      position: absolute; inset: 0;
-      background: rgba(13,13,13,.55);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity .3s ease;
-    }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-overlay span {
-      color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: .04em;
-    }
-    .gallery-cta { text-align: center; margin-top: 44px; }
+/* NUMBERS */
+.numbers-section{background:var(--black);text-align:center}
+.numbers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);max-width:900px;margin:0 auto}
+.num-item{background:var(--black);padding:60px 24px}
+.num-val{font-size:clamp(2.5rem,5vw,3.75rem);font-weight:700;color:#fff;letter-spacing:-.03em;margin-bottom:10px;line-height:1}
+.num-label{font-size:.9375rem;color:rgba(255,255,255,.45);font-weight:400}
+@media(max-width:768px){.numbers-grid{grid-template-columns:1fr}}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 5. CÓMO FUNCIONA                                        */
-    /* ─────────────────────────────────────────────────────── */
-    .how-section { padding: var(--section-pad); background: var(--off-white); }
-    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
-    .step { padding: 40px 36px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; }
-    .step-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 56px; font-weight: 700; color: var(--terra);
-      line-height: 1; margin-bottom: 20px; display: block;
-    }
-    .step h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
-    .step p { color: var(--gray-mid); font-size: 15px; }
+/* TESTIMONIALS */
+.testi-section{background:var(--white)}
+.testi-h{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--text-dark);letter-spacing:-.025em;text-align:center;margin-bottom:48px}
+.testi-h::first-letter{font-size:.72em}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:0 auto}
+.testi-card{background:var(--gray-bg);border-radius:12px;padding:32px 28px}
+.testi-quote{font-size:.9375rem;color:var(--text-dark);line-height:1.7;margin-bottom:20px;font-weight:300}
+.testi-quote::first-letter{font-size:.82em}
+.testi-name{font-size:.875rem;font-weight:600;color:var(--text-dark)}
+.testi-loc{font-size:.8125rem;color:var(--text-light);margin-top:2px}
+@media(max-width:1024px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.testi-grid{grid-template-columns:1fr}}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 6. SERVICIOS                                            */
-    /* ─────────────────────────────────────────────────────── */
-    .services-section { padding: var(--section-pad); }
-    .services-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .service-card {
-      position: relative; overflow: hidden; border-radius: 8px;
-      min-height: 300px; cursor: default;
-      display: flex; flex-direction: column; justify-content: flex-end;
-    }
-    .service-card-bg {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center;
-      transition: transform .45s ease;
-    }
-    .service-card:hover .service-card-bg { transform: scale(1.05); }
-    .service-card-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,13,13,.75) 0%, rgba(13,13,13,.2) 60%, transparent 100%);
-    }
-    .service-card-content {
-      position: relative; z-index: 1; padding: 28px;
-      display: flex; align-items: flex-end; justify-content: space-between;
-    }
-    .service-card-text {}
-    .service-card-sub { font-size: 12px; color: rgba(255,255,255,.65); font-weight: 500; margin-bottom: 6px; letter-spacing: .04em; }
-    .service-card-title { font-size: 22px; font-weight: 700; color: var(--white); }
-    .service-arrow { display: none; }
+/* FAQ */
+.faq-section{background:var(--gray-bg);padding:120px 0}
+.faq-h{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--text-dark);letter-spacing:-.025em;text-align:center;margin-bottom:48px}
+.faq-h::first-letter{font-size:.72em}
+.faq-list{max-width:680px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--gray-line)}
+.faq-item:first-child{border-top:1px solid var(--gray-line)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:18px 0;cursor:pointer;
+  font-size:1rem;font-weight:600;color:var(--text-dark);
+  transition:color .2s;user-select:none;
+}
+.faq-q:hover{color:var(--blue)}
+.faq-q-icon{width:22px;height:22px;flex-shrink:0;transition:transform .28s;color:var(--text-mid)}
+.faq-item.open .faq-q-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .32s cubic-bezier(.4,0,.2,1)}
+.faq-a-inner{padding:0 0 18px;font-size:.9375rem;color:var(--text-mid);line-height:1.7}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 7. PRUEBA SOCIAL                                        */
-    /* ─────────────────────────────────────────────────────── */
-    .social-proof { padding: var(--section-pad); background: var(--deep); }
-    .big-stat { text-align: center; margin-bottom: 64px; }
-    .big-num {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(72px, 10vw, 120px); font-weight: 700;
-      color: var(--terra); line-height: 1; display: block;
-    }
-    .big-sub { font-size: 18px; color: rgba(255,255,255,.7); margin-top: 12px; }
-    .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .testimonial {
-      background: #1A1A1A; border: 1px solid #2A2A2A;
-      border-radius: 8px; padding: 32px;
-    }
-    .test-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-    .test-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
-    .test-name { font-size: 15px; font-weight: 600; color: var(--white); }
-    .test-role { font-size: 13px; color: rgba(255,255,255,.45); margin-top: 2px; }
-    .stars { color: #F5C842; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
-    .test-text { font-size: 15px; color: rgba(255,255,255,.72); line-height: 1.65; }
-    .google-badge {
-      text-align: center; margin-top: 52px;
-      font-size: 15px; font-weight: 600; color: rgba(255,255,255,.6);
-    }
-    .google-badge span { color: var(--terra); }
+/* CTA FINAL */
+.cta-section{background:var(--black);text-align:center}
+.cta-h{
+  font-size:clamp(1.75rem,4vw,3rem);font-weight:700;
+  color:#fff;letter-spacing:-.03em;margin-bottom:12px;
+}
+.cta-h::first-letter{font-size:.72em}
+.cta-sub{font-size:1.0625rem;color:rgba(255,255,255,.6);margin-bottom:36px}
+.cta-sub::first-letter{font-size:.82em}
+.cta-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:72px}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 8. MATERIALES PREMIUM                                   */
-    /* ─────────────────────────────────────────────────────── */
-    .materials-section { padding: var(--section-pad); }
-    .materials-inner {
-      display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center;
-    }
-    .materials-img { border-radius: 8px; overflow: hidden; }
-    .materials-img img { width: 100%; height: 420px; object-fit: cover; }
-    .materials-content {}
-    .materials-content .badge { margin-bottom: 22px; }
-    .materials-content h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 3vw, 38px); font-weight: 700;
-      margin-bottom: 18px; line-height: 1.2;
-    }
-    .materials-content > p { color: var(--gray-mid); font-size: 16px; margin-bottom: 28px; }
-    .check-list { display: flex; flex-direction: column; gap: 14px; }
-    .check-item { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; }
-    .check-icon { flex-shrink: 0; width: 22px; height: 22px; }
+/* FORM */
+.form-wrap{max-width:480px;margin:0 auto;text-align:left}
+.form-field{margin-bottom:0;border-bottom:1px solid rgba(255,255,255,.2);padding:14px 0}
+.form-field input,.form-field textarea{
+  width:100%;background:transparent;border:none;outline:none;
+  font-size:1rem;color:#fff;font-family:var(--f);font-weight:400;
+  letter-spacing:.01em;
+}
+.form-field input::placeholder,.form-field textarea::placeholder{color:rgba(255,255,255,.3)}
+.form-field textarea{resize:none;height:80px}
+.btn-form{
+  width:100%;margin-top:28px;background:#fff;color:var(--text-dark);
+  border:none;border-radius:980px;padding:13px 24px;
+  font-size:.9375rem;font-weight:600;cursor:pointer;
+  font-family:var(--f);transition:opacity .2s;
+}
+.btn-form:hover{opacity:.88}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 9. FAQ                                                  */
-    /* ─────────────────────────────────────────────────────── */
-    .faq-section { padding: var(--section-pad); background: var(--off-white); }
-    .faq-list { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-item:first-child { border-top: 1px solid var(--border); }
-    .faq-question {
-      width: 100%; background: none; border: none; text-align: left;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      padding: 22px 0; font-size: 16px; font-weight: 600; color: var(--black);
-      cursor: pointer; transition: color .2s;
-    }
-    .faq-question:hover { color: var(--terra); }
-    .faq-icon { width: 22px; height: 22px; flex-shrink: 0; transition: transform .3s ease; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-answer { overflow: hidden; max-height: 0; transition: max-height .35s ease, padding .35s ease; }
-    .faq-answer-inner { padding: 0 0 22px; color: var(--gray-mid); font-size: 15px; line-height: 1.7; }
+/* FOOTER */
+footer{background:var(--black);padding:28px 0 20px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 22px}
+.footer-links{
+  display:flex;align-items:center;gap:0;flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.footer-links a,.footer-links span{
+  font-size:.75rem;color:rgba(255,255,255,.4);
+  padding:3px 10px;transition:color .2s;white-space:nowrap;
+}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+.footer-links .sep{padding:3px 2px;user-select:none}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.28);padding-left:10px}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* 10. CTA CONTACTO                                        */
-    /* ─────────────────────────────────────────────────────── */
-    .cta-section { padding: var(--section-pad); background: var(--terra); }
-    .cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
-    .cta-inner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 4vw, 50px); font-weight: 700;
-      color: var(--white); margin-bottom: 16px;
-    }
-    .cta-inner > p { color: rgba(255,255,255,.85); font-size: 17px; margin-bottom: 36px; }
-    .cta-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 52px; }
-    .btn-terra-outline {
-      background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.6);
-      border-radius: 4px; padding: 14px 28px;
-      font-size: 15px; font-weight: 600;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: all .2s;
-    }
-    .btn-terra-outline:hover { border-color: var(--white); background: rgba(255,255,255,.1); }
-    .btn-terra-solid {
-      background: var(--white); color: var(--terra); border: 2px solid var(--white);
-      border-radius: 4px; padding: 14px 28px;
-      font-size: 15px; font-weight: 700;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: all .2s;
-    }
-    .btn-terra-solid:hover { background: var(--off-white); }
+/* WA FLOAT */
+.wa-float{
+  position:fixed;bottom:22px;right:22px;z-index:800;
+  width:52px;height:52px;background:#25D366;border-radius:50%;
+  display:none;align-items:center;justify-content:center;
+  box-shadow:0 2px 16px rgba(37,211,102,.4);
+  transition:transform .2s;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:24px;height:24px;fill:#fff}
+@media(max-width:1024px){.wa-float{display:flex}}
 
-    /* ─────────────────────────────────────────────────────── */
-    /* TIENDA CTA                                              */
-    /* ─────────────────────────────────────────────────────── */
-    .shop-cta {
-      padding: var(--section-pad);
-      background: var(--deep);
-    }
-    .shop-cta-inner {
-      max-width: 1160px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;
-    }
-    .shop-cta-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 4vw, 46px); font-weight: 700;
-      color: var(--white); margin-bottom: 14px; line-height: 1.15;
-    }
-    .shop-cta-text p { color: rgba(255,255,255,.65); font-size: 16px; max-width: 480px; }
-    .shop-cta-products {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
-    }
-    .shop-thumb {
-      border-radius: 6px; overflow: hidden; aspect-ratio: 1;
-      position: relative;
-    }
-    .shop-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
-    .shop-thumb:hover img { transform: scale(1.06); }
-    .shop-thumb-overlay {
-      position: absolute; inset: 0;
-      background: rgba(13,13,13,.35);
-      transition: background .3s;
-    }
-    .shop-thumb:hover .shop-thumb-overlay { background: rgba(13,13,13,.15); }
-    .shop-cta-btn { margin-top: 28px; }
-    @media (min-width: 768px) {
-      .shop-cta-inner { grid-template-columns: 1fr 1fr; gap: 64px; }
-      .shop-cta-products { grid-template-columns: repeat(4, 1fr); }
-    }
-
-    /* ─────────────────────────────────────────────────────── */
-    /* 10. ENCUÉNTRANOS                                        */
-    /* ─────────────────────────────────────────────────────── */
-    .location-section { padding: var(--section-pad); background: var(--white); }
-    .location-inner {
-      display: grid; grid-template-columns: 1fr; gap: 52px; align-items: start;
-    }
-    .location-map {
-      border-radius: 8px; overflow: hidden;
-      border: 1px solid var(--border);
-      line-height: 0;
-    }
-    .location-map iframe { display: block; width: 100%; height: 420px; border: 0; }
-    .location-info {}
-    .location-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 3vw, 38px); font-weight: 700;
-      margin-bottom: 16px; line-height: 1.2;
-    }
-    .location-info > p { color: var(--gray-mid); font-size: 16px; margin-bottom: 36px; line-height: 1.7; }
-    .loc-details { display: flex; flex-direction: column; gap: 22px; margin-bottom: 36px; }
-    .loc-item { display: flex; align-items: flex-start; gap: 14px; }
-    .loc-icon {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: var(--off-white); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .loc-icon svg { width: 18px; height: 18px; }
-    .loc-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
-    .loc-text span { font-size: 14px; color: var(--gray-mid); line-height: 1.55; }
-    .loc-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-    @media (min-width: 768px) {
-      .location-inner { grid-template-columns: 1fr 1fr; }
-      .location-map iframe { height: 500px; }
-    }
-
-    /* ─────────────────────────────────────────────────────── */
-    /* 11. FOOTER                                              */
-    /* ─────────────────────────────────────────────────────── */
-    .footer { background: var(--deep); padding: 72px 24px 0; }
-    .footer-grid {
-      max-width: 1160px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr; gap: 40px;
-      padding-bottom: 56px;
-    }
-    .footer-logo { display: block; margin-bottom: 14px; }
-    .footer-logo img { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: .85; }
-    .footer-tagline { font-size: 14px; color: rgba(255,255,255,.45); max-width: 260px; line-height: 1.6; }
-    .footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 18px; }
-    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,.65); transition: color .2s; }
-    .footer-col ul li a:hover { color: var(--white); }
-    .footer-contact-item { display: flex; gap: 10px; margin-bottom: 12px; }
-    .footer-contact-item .fc-icon { flex-shrink: 0; margin-top: 2px; }
-    .footer-contact-item span { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.55; }
-    .footer-divider { max-width: 1160px; margin: 0 auto; border: none; border-top: 1px solid #1E1E1E; }
-    .footer-bottom {
-      max-width: 1160px; margin: 0 auto;
-      padding: 22px 0 28px;
-      display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
-      font-size: 13px; color: rgba(255,255,255,.3);
-    }
-
-    /* ── WHATSAPP FLOAT ───────────────────────────────────── */
-    .whatsapp-float {
-      position: fixed; bottom: 24px; right: 20px; z-index: 9999;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25D366;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 16px rgba(37,211,102,.4);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .whatsapp-float:hover { transform: scale(1.07); box-shadow: 0 6px 22px rgba(37,211,102,.5); }
-    .whatsapp-float svg { width: 30px; height: 30px; }
-
-    /* ─────────────────────────────────────────────────────── */
-    /* RESPONSIVE — TABLET 768px                               */
-    /* ─────────────────────────────────────────────────────── */
-    @media (min-width: 768px) {
-      .topbar-center { display: block; }
-      .steps-grid { grid-template-columns: repeat(3, 1fr); }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-grid { columns: 2; }
-      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-      .materials-inner { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
-    }
-
-    /* ─────────────────────────────────────────────────────── */
-    /* RESPONSIVE — DESKTOP 1024px                             */
-    /* ─────────────────────────────────────────────────────── */
-    @media (min-width: 1024px) {
-      .nav-links { display: flex; }
-      .nav-cta { display: flex; }
-      .hamburger { display: none; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-grid { columns: 3; }
-      .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
-      .whatsapp-float { display: none; }
-    }
-
-    @media (max-width: 400px) {
-      .hero-ctas { flex-direction: column; align-items: stretch; }
-      .hero-ctas .btn { justify-content: center; }
-    }
-  </style>
+/* REVEAL */
+.reveal{opacity:0;transform:scale(.98) translateY(16px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+</style>
 </head>
 <body>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 1. TOPBAR                                    -->
-  <!-- ──────────────────────────────────────────── -->
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="topbar-left">
-        <span>📍</span> Santa Cruz de Tenerife, Canarias
+<!-- WA FLOAT -->
+<a href="https://wa.me/34626971958?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20un%20presupuesto" class="wa-float" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Artes Gráficas</a>
+    <ul class="nav-links">
+      <li><a href="#hogar">Hogar</a></li>
+      <li><a href="#negocios">Negocios</a></li>
+      <li><a href="#galeria">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hogar" onclick="closeMobile()">Hogar</a>
+  <a href="#negocios" onclick="closeMobile()">Negocios</a>
+  <a href="#galeria" onclick="closeMobile()">Proyectos</a>
+  <a href="#contacto" onclick="closeMobile()">Contacto</a>
+  <a href="https://wa.me/34626971958?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20un%20presupuesto" class="pill-blue" target="_blank" rel="noopener" onclick="closeMobile()">Pedir presupuesto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="auroraCanvas"></canvas>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Vinilos · Rótulos · Tenerife</p>
+    <h1 class="hero-h1">Artes Gráficas.</h1>
+    <p class="hero-sub">vinilos y rótulos personalizados para tu hogar o negocio.</p>
+    <a href="https://wa.me/34626971958?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20un%20presupuesto" class="pill-blue" target="_blank" rel="noopener">Pedir presupuesto</a>
+  </div>
+</section>
+
+<!-- SECCIÓN HOGAR -->
+<section id="hogar" class="prod-section">
+  <div class="container">
+    <div class="prod-img-wrap reveal">
+      <img src="https://picsum.photos/seed/homewall/1200/700" alt="Vinilo decorativo en hogar">
+    </div>
+    <div class="prod-text reveal d1">
+      <h2 class="prod-title-light">para tu hogar.</h2>
+      <p class="prod-sub-light">vinilos decorativos para paredes, muebles y habitaciones. sin obras, sin reformas.</p>
+      <a href="https://wa.me/34626971958?text=Hola%2C%20me%20interesan%20vinilos%20para%20el%20hogar" class="link-blue" target="_blank" rel="noopener">Ver vinilos para hogar →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN NEGOCIOS -->
+<section id="negocios" class="prod-section white">
+  <div class="container">
+    <div class="prod-img-wrap reveal">
+      <img src="https://picsum.photos/seed/shopfront/1200/700" alt="Rótulo para negocio">
+    </div>
+    <div class="prod-text reveal d1">
+      <h2 class="prod-title-dark">para tu negocio.</h2>
+      <p class="prod-sub-dark">rótulos LED, letras vinilo y escaparates que hacen que tu local destaque desde la calle.</p>
+      <a href="https://wa.me/34626971958?text=Hola%2C%20necesito%20rotulaci%C3%B3n%20para%20mi%20negocio" class="link-blue" target="_blank" rel="noopener">Ver rótulos →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="container">
+    <div class="feat-grid">
+      <div class="feat-item reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 4l14 7v9c0 7-6 13-14 16C6 33 0 27 0 20v-9l14-7z" transform="translate(0,0) scale(1)"/>
+            <polyline points="13,20 18,25 27,15" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="feat-title">vinilo ORACAL premium.</div>
+        <p class="feat-desc">material alemán certificado, resistente al sol canario.</p>
       </div>
-      <div class="topbar-center">Lun–Vie: 09:00 – 17:00</div>
-      <div class="topbar-right">
-        <a href="https://wa.me/34626971958" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          💬 WhatsApp
-        </a>
+      <div class="feat-item reveal d1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 8h28l-3 18H9L6 8z"/>
+            <circle cx="15" cy="34" r="2"/>
+            <circle cx="27" cy="34" r="2"/>
+            <path d="M2 4h4"/>
+          </svg>
+        </div>
+        <div class="feat-title">envío a todas las islas.</div>
+        <p class="feat-desc">canarias y península en 3–5 días laborables.</p>
+      </div>
+      <div class="feat-item reveal d2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="20" cy="20" r="16"/>
+            <path d="M14 20l5 5 9-9"/>
+          </svg>
+        </div>
+        <div class="feat-title">instalación profesional.</div>
+        <p class="feat-desc">en Santa Cruz de Tenerife y alrededores.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 2. NAVBAR                                    -->
-  <!-- ──────────────────────────────────────────── -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar-inner">
-      <a href="#" class="nav-logo"><img src="https://vinilosdecorativostenerife.com/wp-content/uploads/2020/10/artes-graficas-1-1536x353.png" alt="Artes Gráficas Canarias" /></a>
-      <div class="nav-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#galeria">Proyectos</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="https://vinilosdecorativostenerife.com/tienda/" target="_blank" rel="noopener" style="color:var(--terra);font-weight:700;">Tienda online</a>
-        <a href="#contacto">Encuéntranos</a>
-      </div>
-      <a href="#contacto" class="btn btn-dark nav-cta" style="font-size:14px;padding:11px 22px;">Pedir presupuesto</a>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+<!-- GALLERY -->
+<section id="galeria" class="gallery-section">
+  <div class="container">
+    <h2 class="gallery-h reveal">trabajos reales.</h2>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item"><img src="https://picsum.photos/seed/p1/600/600" alt="" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://picsum.photos/seed/p2/600/600" alt="" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://picsum.photos/seed/p3/600/600" alt="" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://picsum.photos/seed/p4/600/600" alt="" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://picsum.photos/seed/p5/600/600" alt="" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://picsum.photos/seed/p6/600/600" alt="" loading="lazy"></div>
     </div>
-  </nav>
-
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#servicios" class="mobile-link">Servicios</a>
-    <a href="#galeria" class="mobile-link">Proyectos</a>
-    <a href="#como-funciona" class="mobile-link">Cómo funciona</a>
-    <a href="https://vinilosdecorativostenerife.com/tienda/" target="_blank" rel="noopener" class="mobile-link" style="color:var(--terra);font-weight:700;">Tienda online</a>
-    <a href="#contacto" class="mobile-link">Encuéntranos</a>
-    <a href="#contacto" class="btn btn-dark">Pedir presupuesto</a>
   </div>
+</section>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 3. HERO                                      -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="hero" id="inicio">
-    <div class="hero-inner">
-
-      <div class="hero-content">
-        <div class="hero-badge reveal">
-          <span class="badge badge-solid">✦ Especialistas en Canarias desde 2010</span>
-        </div>
-        <h1 class="reveal reveal-delay-1">Tu espacio,<br>tu personalidad.</h1>
-        <p class="hero-sub reveal reveal-delay-2">Vinilos decorativos y rótulos personalizados para hogares y negocios en Tenerife. Sin obras. Sin complicaciones.</p>
-        <div class="hero-ctas reveal reveal-delay-3">
-          <a href="#servicios" class="btn btn-dark">🏠 Para mi hogar</a>
-          <a href="#servicios" class="btn btn-outline-dark">🏢 Para mi negocio</a>
-        </div>
-        <div class="trust-badges reveal reveal-delay-4">
-          <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" stroke="#C8714A" stroke-width="1.5" fill="rgba(200,113,74,0.15)"/></svg>
-            +500 proyectos realizados
-          </div>
-          <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#6B6B6B" stroke-width="1.5"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" stroke="#6B6B6B" stroke-width="1.5"/></svg>
-            Envío a todas las islas
-          </div>
-          <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#6B6B6B" stroke-width="1.5"/></svg>
-            Vinilo ORACAL Premium
-          </div>
-          <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="#6B6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Garantía de calidad
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal reveal-delay-2">
-        <img
-          class="hero-visual-img"
-          src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/vinilos-tenerife-pared-rota-habitacion-artes-graficas-canarias-scaled-qnl6ivtxrqfkh0exwsu8x7yeimf0hqxcrk3icgdtvs.jpg"
-          alt="Vinilo decorativo instalado en habitación" />
-        <div class="hero-visual-badge">
-          <span class="hvb-num">500+</span>
-          <span class="hvb-text">Proyectos<br>realizados</span>
-        </div>
-      </div>
-
+<!-- NUMBERS -->
+<section class="numbers-section">
+  <div class="container">
+    <div class="numbers-grid">
+      <div class="num-item reveal"><div class="num-val">500+</div><div class="num-label">proyectos completados</div></div>
+      <div class="num-item reveal d1"><div class="num-val">15 años</div><div class="num-label">en Canarias</div></div>
+      <div class="num-item reveal d2"><div class="num-val">4.9★</div><div class="num-label">valoración media</div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 4. GALERÍA                                   -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="gallery-section" id="galeria">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="serif">Lo que hemos creado</h2>
-        <p>Trabajos reales para clientes en Canarias</p>
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="container">
+    <h2 class="testi-h reveal">lo que dicen.</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1">
+        <p class="testi-quote">"pedí un vinilo para el salón. me enviaron la muestra digital antes de producir nada y el resultado fue exactamente lo que quería. llegó en tres días."</p>
+        <div class="testi-name">Carmen R.</div>
+        <div class="testi-loc">Las Palmas de Gran Canaria</div>
       </div>
-      <div class="gallery-grid reveal">
-        <div class="gallery-item">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/vinilos-tenerife-pared-rota-habitacion-artes-graficas-canarias-scaled-qnl6ivtxrqfkh0exwsu8x7yeimf0hqxcrk3icgdtvs.jpg" alt="Vinilo decorativo pared habitación" loading="lazy" />
-          <div class="gallery-overlay"><span>Ver proyecto →</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/Laura-ql72p9okbb6p0od88uhoehbhy954o60c2g0kblclfs.jpeg" alt="Rótulo negocio Laura" loading="lazy" />
-          <div class="gallery-overlay"><span>Ver proyecto →</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/elefante-en-vinilo-adhesivo-stickers-pegatinas-rotulos-en-tenerife-y-canarias-q1s3gj866q87gcv84n7afbif009ipi5xkwary1tbig.jpg" alt="Vinilo elefante decorativo" loading="lazy" />
-          <div class="gallery-overlay"><span>Ver proyecto →</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/venta-de-rotulos-tenerife-y-canarias-pegatinas-vinilos-y-stickjer-scaled-qnl6izlaj2kprg9haugr7708w5whcjca42pg9k896w.jpg" alt="Rótulo negocio Tenerife" loading="lazy" />
-          <div class="gallery-overlay"><span>Ver proyecto →</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/03-DISNEY-e1641587780358-q1okxnx2dcyddf2id9z1c83xxcmxz2nbodvjeld56w.jpg" alt="Vinilo infantil Disney" loading="lazy" />
-          <div class="gallery-overlay"><span>Ver proyecto →</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/rotulos-vinilos-tenerife-adhesivos-decorativos-stickers-pegatinas-mmdanza-1024x1024-1-q3xfj73s4wz2hc1ot65s4gxmynsqsl2jgtl6t2qpag.jpeg" alt="Rótulo academia de danza" loading="lazy" />
-          <div class="gallery-overlay"><span>Ver proyecto →</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/06-e1641396094443-q1okylr97e8ozdpcvolltzkjb805o6dnt1d0ojyyyw.jpg" alt="Vinilo decorativo salón" loading="lazy" />
-          <div class="gallery-overlay"><span>Ver proyecto →</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/20200601_171450-scaled-qnl6ijm1avyua2wow5k3it1esm38pokudvm73uvy4o.jpg" alt="Instalación vinilo profesional" loading="lazy" />
-          <div class="gallery-overlay"><span>Ver proyecto →</span></div>
-        </div>
+      <div class="testi-card reveal d2">
+        <p class="testi-quote">"rotulé mi peluquería con letras vinilo. el precio fue justo y la calidad impecable. lleva dos años como el primer día, bajo el sol de Tenerife."</p>
+        <div class="testi-name">Marcos D.</div>
+        <div class="testi-loc">Santa Cruz de Tenerife</div>
       </div>
-      <div class="gallery-cta reveal">
-        <a href="#contacto" class="btn btn-outline-dark">Ver todos los proyectos</a>
+      <div class="testi-card reveal d3">
+        <p class="testi-quote">"los vinilos infantiles para la habitación de mi hija superaron mis expectativas. el envío llegó rapidísimo a Lanzarote y la instalación fue facilísima."</p>
+        <div class="testi-name">Lucía F.</div>
+        <div class="testi-loc">Lanzarote</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 5. CÓMO FUNCIONA                             -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="how-section" id="como-funciona">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="serif">Así de fácil</h2>
-        <p>Tres pasos y tu proyecto estará listo</p>
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="faq-h reveal">preguntas.</h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>¿cuánto tarda en llegar mi pedido?</span>
+          <div class="faq-q-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><line x1="11" y1="4" x2="11" y2="18"/><line x1="4" y1="11" x2="18" y2="11"/></svg></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">los pedidos estándar se entregan en 3–5 días laborables en Tenerife y el resto del archipiélago. si necesitas un plazo más rápido, consúltanos.</div></div>
       </div>
-      <div class="steps-grid">
-        <div class="step reveal reveal-delay-1">
-          <span class="step-num">01</span>
-          <h3>Cuéntanos tu idea</h3>
-          <p>Escríbenos por WhatsApp o rellena el formulario. Te respondemos en menos de 24h con un presupuesto sin compromiso.</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>¿instaláis vosotros o lo hago yo?</span>
+          <div class="faq-q-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><line x1="11" y1="4" x2="11" y2="18"/><line x1="4" y1="11" x2="18" y2="11"/></svg></div>
         </div>
-        <div class="step reveal reveal-delay-2">
-          <span class="step-num">02</span>
-          <h3>Diseñamos juntos</h3>
-          <p>Te enviamos una muestra digital del diseño antes de producir nada. Sin sorpresas, sin letra pequeña.</p>
-        </div>
-        <div class="step reveal reveal-delay-3">
-          <span class="step-num">03</span>
-          <h3>Lo recibes o lo instalamos</h3>
-          <p>Envío a domicilio en toda Canarias o instalación profesional en tu espacio con nuestro equipo.</p>
-        </div>
+        <div class="faq-a"><div class="faq-a-inner">puedes instalarlo tú mismo con las instrucciones que incluimos. si estás en Santa Cruz de Tenerife y alrededores, también podemos desplazarnos a instalarlo.</div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 6. SERVICIOS                                 -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="services-section" id="servicios">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="serif">Qué hacemos</h2>
-        <p>Soluciones para cada espacio y cada necesidad</p>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>¿puedo enviar mi propio diseño?</span>
+          <div class="faq-q-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><line x1="11" y1="4" x2="11" y2="18"/><line x1="4" y1="11" x2="18" y2="11"/></svg></div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">sí, aceptamos AI, PDF, PNG o JPG en alta resolución. si no tienes diseño, lo creamos por ti sin coste adicional.</div></div>
       </div>
-      <div class="services-grid">
-
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-card-bg" style="background-image:url('https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/vinilos-tenerife-pared-rota-habitacion-artes-graficas-canarias-scaled-qnl6ivtxrqfkh0exwsu8x7yeimf0hqxcrk3icgdtvs.jpg')"></div>
-          <div class="service-card-overlay"></div>
-          <div class="service-card-content">
-            <div class="service-card-text">
-              <div class="service-card-sub">Paredes · Muebles · Infantiles</div>
-              <div class="service-card-title">Vinilos para hogar</div>
-            </div>
-            <div class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>¿hacéis presupuestos para empresas?</span>
+          <div class="faq-q-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><line x1="11" y1="4" x2="11" y2="18"/><line x1="4" y1="11" x2="18" y2="11"/></svg></div>
         </div>
-
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-card-bg" style="background-image:url('https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/Laura-ql72p9okbb6p0od88uhoehbhy954o60c2g0kblclfs.jpeg')"></div>
-          <div class="service-card-overlay"></div>
-          <div class="service-card-content">
-            <div class="service-card-text">
-              <div class="service-card-sub">LED · Escaparates · Letras vinilo</div>
-              <div class="service-card-title">Rótulos para negocios</div>
-            </div>
-            <div class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </div>
+        <div class="faq-a"><div class="faq-a-inner">sí, trabajamos con pymes, autónomos y grandes empresas en toda Canarias. emitimos factura y nos adaptamos a vuestros plazos.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>¿qué pasa si el pedido llega dañado?</span>
+          <div class="faq-q-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><line x1="11" y1="4" x2="11" y2="18"/><line x1="4" y1="11" x2="18" y2="11"/></svg></div>
         </div>
-
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-card-bg" style="background-image:url('https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/rotulos-vinilos-tenerife-adhesivos-decorativos-stickers-pegatinas-mmdanza-1024x1024-1-q3xfj73s4wz2hc1ot65s4gxmynsqsl2jgtl6t2qpag.jpeg')"></div>
-          <div class="service-card-overlay"></div>
-          <div class="service-card-content">
-            <div class="service-card-text">
-              <div class="service-card-sub">Eventos · Productos · Packaging</div>
-              <div class="service-card-title">Pegatinas personalizadas</div>
-            </div>
-            <div class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-card reveal reveal-delay-4">
-          <div class="service-card-bg" style="background-image:url('https://vinilosdecorativostenerife.com/wp-content/uploads/elementor/thumbs/venta-de-rotulos-tenerife-y-canarias-pegatinas-vinilos-y-stickjer-scaled-qnl6izlaj2kprg9haugr7708w5whcjca42pg9k896w.jpg')"></div>
-          <div class="service-card-overlay"></div>
-          <div class="service-card-content">
-            <div class="service-card-text">
-              <div class="service-card-sub">Furgonetas · Coches · Flotas</div>
-              <div class="service-card-title">Vinilos para vehículo</div>
-            </div>
-            <div class="service-arrow">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-          </div>
-        </div>
-
+        <div class="faq-a"><div class="faq-a-inner">lo reponemos sin coste y con prioridad. fotografía el daño y escríbenos por WhatsApp; lo gestionamos de inmediato.</div></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 7. PRUEBA SOCIAL                             -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="social-proof">
-    <div class="container">
-      <div class="big-stat reveal">
-        <span class="big-num">500+</span>
-        <p class="big-sub">proyectos en hogares y negocios de Canarias</p>
-      </div>
-      <div class="testimonials-grid">
-
-        <div class="testimonial reveal reveal-delay-1">
-          <div class="test-header">
-            <img class="test-avatar" src="https://picsum.photos/100/100?random=41" alt="Avatar María José" loading="lazy" />
-            <div>
-              <div class="test-name">María José Hernández</div>
-              <div class="test-role">Propietaria de tienda, Las Palmas</div>
-            </div>
-          </div>
-          <div class="stars">★★★★★</div>
-          <p class="test-text">"El rótulo de nuestro escaparate quedó increíble. Rápidos, profesionales y el resultado superó lo que esperábamos. 100% recomendables."</p>
-        </div>
-
-        <div class="testimonial reveal reveal-delay-2">
-          <div class="test-header">
-            <img class="test-avatar" src="https://picsum.photos/100/100?random=42" alt="Avatar Carlos Díaz" loading="lazy" />
-            <div>
-              <div class="test-name">Carlos Díaz Alonso</div>
-              <div class="test-role">Particular, Santa Cruz de Tenerife</div>
-            </div>
-          </div>
-          <div class="stars">★★★★★</div>
-          <p class="test-text">"Vinilo en la habitación de mi hija que se veía bien en foto y espectacular en persona. El diseño digital antes de imprimir lo hace todo mucho más fácil."</p>
-        </div>
-
-        <div class="testimonial reveal reveal-delay-3">
-          <div class="test-header">
-            <img class="test-avatar" src="https://picsum.photos/100/100?random=43" alt="Avatar Rosa Medina" loading="lazy" />
-            <div>
-              <div class="test-name">Rosa Medina Trujillo</div>
-              <div class="test-role">Restaurante La Palma, Arona</div>
-            </div>
-          </div>
-          <div class="stars">★★★★★</div>
-          <p class="test-text">"Llevan más de dos años resistiendo el sol y el salitre sin despegar ni perder color. Lo que más me gustó: el trato cercano y el asesoramiento desde el primer día."</p>
-        </div>
-
-      </div>
-      <div class="google-badge reveal">⭐ <span>4.9</span> sobre 5 en Google Reviews</div>
+<!-- CTA FINAL -->
+<section id="contacto" class="cta-section">
+  <div class="container" style="text-align:center">
+    <h2 class="cta-h reveal">¿tienes un proyecto?</h2>
+    <p class="cta-sub reveal">presupuesto sin compromiso en 24 horas.</p>
+    <div class="cta-pills reveal">
+      <a href="https://wa.me/34626971958?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20un%20presupuesto" class="pill-blue" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a href="mailto:info@artesgraficascanarias.es" class="pill-outline-white">📧 Escribir mensaje</a>
     </div>
-  </section>
-
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 8. MATERIALES PREMIUM                        -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="materials-section">
-    <div class="container">
-      <div class="materials-inner">
-        <div class="materials-img reveal">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/2019/09/05-UNICORNIO-1-1024x1024.jpg" alt="Vinilo decorativo infantil unicornio" loading="lazy" />
-        </div>
-        <div class="materials-content reveal reveal-delay-2">
-          <span class="badge badge-solid" style="margin-bottom:22px;">CALIDAD GARANTIZADA</span>
-          <h3 class="serif">Vinilo ORACAL —<br>el preferido por los profesionales</h3>
-          <p>ORACAL es la marca alemana de referencia en la industria del vinilo adhesivo. Usada por los mejores rotulistas de Europa y especialmente indicada para el clima canario: soporta el sol intenso, la humedad marina y las altas temperaturas sin perder ni color ni adherencia.</p>
-          <ul class="check-list">
-            <li class="check-item">
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="#C8714A" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#C8714A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Resistente a UV y humedad
-            </li>
-            <li class="check-item">
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="#C8714A" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#C8714A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Colores que no se decoloran
-            </li>
-            <li class="check-item">
-              <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="#C8714A" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#C8714A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Fácil de limpiar y mantener
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="form-wrap reveal">
+      <div class="form-field"><input type="text" placeholder="nombre"></div>
+      <div class="form-field"><input type="email" placeholder="email"></div>
+      <div class="form-field"><input type="tel" placeholder="teléfono"></div>
+      <div class="form-field"><textarea placeholder="cuéntanos tu idea..."></textarea></div>
+      <button class="btn-form" type="button">enviar consulta</button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 9. FAQ                                       -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="faq-section" id="faq">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="serif">Preguntas frecuentes</h2>
-        <p>Todo lo que necesitas saber antes de pedir</p>
-      </div>
-      <div class="faq-list reveal">
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            ¿Cuánto tarda en llegar mi pedido?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Los pedidos se producen en un plazo de 3 a 5 días laborables desde la aprobación del diseño. El envío a las islas Canarias tarda entre 1 y 3 días adicionales dependiendo de tu isla. Te mandamos el número de seguimiento en cuanto salga de nuestro taller.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            ¿Instaláis vosotros el vinilo?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Sí, ofrecemos servicio de instalación profesional en Tenerife y otras islas bajo consulta. Para pedidos que vayas a colocar tú mismo, incluimos instrucciones detalladas y el vinilo viene con capa de transfer para facilitar el montaje. La mayoría de nuestros clientes lo instalan sin problema.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            ¿Puedo enviar mi propio diseño?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Por supuesto. Aceptamos archivos en formato AI, PDF vectorial, EPS o SVG. Si tu archivo tiene baja resolución o es una imagen ráster (JPG, PNG), nuestro equipo lo revisa y te dice si es viable. En muchos casos podemos vectorizarlo nosotros por un coste mínimo.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            ¿Hacéis presupuestos para empresas?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Sí, trabajamos habitualmente con empresas, comercios y autónomos. Ofrecemos precios especiales para pedidos recurrentes o en volumen, y podemos facturar con IVA sin problema. Escríbenos indicando que eres empresa y te preparamos una propuesta adaptada a tus necesidades.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            ¿Qué pasa si el vinilo llega dañado?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">En el improbable caso de que tu pedido llegue con algún defecto de producción o daño en el transporte, lo reponemos sin coste. Solo necesitas hacernos una foto del desperfecto en un plazo de 48 horas desde la recepción y nosotros nos encargamos del resto.</div>
-          </div>
-        </div>
-
-      </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#hogar">Hogar</a><span class="sep">·</span>
+      <a href="#negocios">Negocios</a><span class="sep">·</span>
+      <a href="#galeria">Proyectos</a><span class="sep">·</span>
+      <a href="#contacto">Contacto</a><span class="sep">·</span>
+      <a href="#">Aviso legal</a><span class="sep">·</span>
+      <a href="#">Privacidad</a>
     </div>
-  </section>
-
-  <!-- ──────────────────────────────────────────── -->
-  <!-- TIENDA ONLINE                                -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="shop-cta" id="tienda">
-    <div class="shop-cta-inner container">
-
-      <div class="shop-cta-text reveal">
-        <span class="badge" style="border-color:var(--terra);color:var(--terra);margin-bottom:22px;">TIENDA ONLINE</span>
-        <h2>Compra directamente<br>desde casa</h2>
-        <p>Explora nuestro catálogo de vinilos decorativos, pegatinas y productos personalizados. Pedido rápido, envío a toda Canarias y España.</p>
-        <div class="shop-cta-btn">
-          <a href="https://vinilosdecorativostenerife.com/tienda/" target="_blank" rel="noopener" class="btn btn-white" style="font-size:15px;">
-            Ir a la tienda
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7" stroke="#0D0D0D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="shop-cta-products reveal reveal-delay-2">
-        <div class="shop-thumb">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/2019/09/05-UNICORNIO-1-1024x1024.jpg" alt="Vinilo unicornio infantil" loading="lazy" />
-          <div class="shop-thumb-overlay"></div>
-        </div>
-        <div class="shop-thumb">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/2019/09/01-UNICORNIO-1-1024x1024.jpg" alt="Vinilo unicornio" loading="lazy" />
-          <div class="shop-thumb-overlay"></div>
-        </div>
-        <div class="shop-thumb">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/2020/01/05-1-1024x1024.jpg" alt="Vinilo decorativo" loading="lazy" />
-          <div class="shop-thumb-overlay"></div>
-        </div>
-        <div class="shop-thumb">
-          <img src="https://vinilosdecorativostenerife.com/wp-content/uploads/2020/01/04-1-1024x1024.jpg" alt="Vinilo personalizado" loading="lazy" />
-          <div class="shop-thumb-overlay"></div>
-        </div>
-      </div>
-
+    <div class="footer-links" style="margin-bottom:0">
+      <span style="padding:3px 10px">Artes Gráficas Canarias · Calle Altamira 28, Santa Cruz de Tenerife · Lun–Vie 09:00–17:00</span>
     </div>
-  </section>
+    <div style="height:12px"></div>
+    <p class="footer-copy">Copyright © 2025 Artes Gráficas Canarias. Todos los derechos reservados.</p>
+  </div>
+</footer>
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 10. ENCUÉNTRANOS                             -->
-  <!-- ──────────────────────────────────────────── -->
-  <section class="location-section" id="contacto">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="serif">Encuéntranos</h2>
-        <p>Visítanos en Santa Cruz de Tenerife o escríbenos cuando quieras</p>
-      </div>
-      <div class="location-inner">
+<script>
+// Burger
+var burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',function(){
+  burger.classList.toggle('open');
+  mm.classList.toggle('open');
+  document.body.style.overflow=mm.classList.contains('open')?'hidden':'';
+});
+function closeMobile(){burger.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''}
 
-        <div class="location-map reveal">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3479.073!2d-16.323225084902768!3d28.429891399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cd37bc88b7df%3A0x5c8eed9d2f724d94!2sArtes%20Graficas%20-%20Vinilos%20-%20rotulos%20-%20carterier%C3%ADa%20-%20Lonas%20publicitarias%20en%20Tenerife%20%7C%20Canarias!5e0!3m2!1ses!2ses!4v1712800000000!5m2!1ses!2ses"
-            allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Ubicación Artes Gráficas Canarias — Santa Cruz de Tenerife">
-          </iframe>
-        </div>
+// FAQ
+function toggleFaq(q){
+  var item=q.parentElement,wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){
+    i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0';
+  });
+  if(!wasOpen){
+    item.classList.add('open');
+    var a=item.querySelector('.faq-a');
+    a.style.maxHeight=a.scrollHeight+'px';
+  }
+}
 
-        <div class="location-info reveal reveal-delay-2">
-          <span class="badge badge-solid" style="margin-bottom:24px;">VISÍTANOS</span>
-          <h3 class="serif">Estamos en<br>Santa Cruz de Tenerife</h3>
-          <p>Pásate por nuestro local, te enseñamos materiales y resolvemos cualquier duda. O escríbenos por WhatsApp ahora mismo — respondemos el mismo día.</p>
-          <div class="loc-details">
-            <div class="loc-item">
-              <div class="loc-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#C8714A"/></svg>
-              </div>
-              <div class="loc-text">
-                <strong>Dirección</strong>
-                <span>Santa Cruz de Tenerife, Canarias</span>
-              </div>
-            </div>
-            <div class="loc-item">
-              <div class="loc-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="#C8714A" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#C8714A" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-              <div class="loc-text">
-                <strong>Horario</strong>
-                <span>Lunes a Viernes: 09:00 – 17:00</span>
-              </div>
-            </div>
-            <div class="loc-item">
-              <div class="loc-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#C8714A"/></svg>
-              </div>
-              <div class="loc-text">
-                <strong>Teléfono / WhatsApp</strong>
-                <span>+34 626 971 958</span>
-              </div>
-            </div>
-            <div class="loc-item">
-              <div class="loc-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#C8714A" stroke-width="1.5"/><path d="M2 8l10 7 10-7" stroke="#C8714A" stroke-width="1.5"/></svg>
-              </div>
-              <div class="loc-text">
-                <strong>Email</strong>
-                <span>info@vinilosdecorativostenerife.com</span>
-              </div>
-            </div>
-          </div>
-          <div class="loc-ctas">
-            <a href="https://wa.me/34626971958" target="_blank" rel="noopener" class="btn btn-dark">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Escríbenos por WhatsApp
-            </a>
-            <a href="https://maps.google.com/?q=28.4298914,-16.3210002" target="_blank" rel="noopener" class="btn btn-outline-dark">
-              Ver en Google Maps
-            </a>
-          </div>
-        </div>
+// Reveal
+var revObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el)});
 
-      </div>
-    </div>
-  </section>
+// Aurora
+(function(){
+  var cv=document.getElementById('auroraCanvas');
+  var ctx=cv.getContext('2d');
+  var t=0,raf;
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- 11. FOOTER                                   -->
-  <!-- ──────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div>
-        <a href="#" class="footer-logo"><img src="https://vinilosdecorativostenerife.com/wp-content/uploads/2020/10/artes-graficas-1-1536x353.png" alt="Artes Gráficas Canarias" /></a>
-        <p class="footer-tagline">Vinilos decorativos y rótulos personalizados en Tenerife, Canarias.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Servicios</h4>
-        <ul>
-          <li><a href="#servicios">Vinilos para hogar</a></li>
-          <li><a href="#servicios">Rótulos para negocios</a></li>
-          <li><a href="#servicios">Pegatinas personalizadas</a></li>
-          <li><a href="#servicios">Vinilos para vehículo</a></li>
-          <li><a href="#servicios">Letras LED</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Información</h4>
-        <ul>
-          <li><a href="#">Aviso legal</a></li>
-          <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Política de cookies</a></li>
-          <li><a href="#">Cómo funciona</a></li>
-          <li><a href="#faq">Preguntas frecuentes</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <div class="footer-contact-item">
-          <svg class="fc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="rgba(255,255,255,0.4)"/></svg>
-          <span>Calle Ejemplo 12, Local 3<br>38001 Santa Cruz de Tenerife</span>
-        </div>
-        <div class="footer-contact-item">
-          <svg class="fc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="rgba(255,255,255,0.4)"/></svg>
-          <span>+34 626 971 958</span>
-        </div>
-        <div class="footer-contact-item">
-          <svg class="fc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <span>Lun–Vie: 09:00 – 17:00</span>
-        </div>
-      </div>
-    </div>
-    <hr class="footer-divider" />
-    <div class="footer-bottom">
-      <span>© 2024 Artes Gráficas Canarias. Todos los derechos reservados.</span>
-      <span>Hecho en Tenerife 🌋</span>
-    </div>
-  </footer>
+  function resize(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight}
+  resize();
+  window.addEventListener('resize',resize,{passive:true});
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- WHATSAPP FLOAT                               -->
-  <!-- ──────────────────────────────────────────── -->
-  <a href="https://wa.me/34626971958" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+  function buildGrad(hueShift,alpha){
+    var g=ctx.createLinearGradient(0,0,cv.width,0);
+    for(var i=0;i<=12;i++){
+      var h=(hueShift+(i/12)*360)%360;
+      g.addColorStop(i/12,'hsla('+h+',90%,65%,'+alpha+')');
+    }
+    return g;
+  }
 
-  <!-- ──────────────────────────────────────────── -->
-  <!-- JAVASCRIPT                                   -->
-  <!-- ──────────────────────────────────────────── -->
-  <script>
-    // ── NAVBAR scroll shadow ──────────────────────
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 10);
-    }, { passive: true });
+  function getY(x){
+    return cv.height*0.45
+      +Math.sin(x*0.006+t*1.8)*28
+      +Math.sin(x*0.013+t*2.6)*14
+      +Math.sin(x*0.003+t*1.1)*20;
+  }
 
-    // ── HAMBURGER mobile menu ─────────────────────
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      const open = hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
+  function drawLine(){
+    ctx.beginPath();
+    ctx.moveTo(0,getY(0));
+    for(var x=2;x<=cv.width;x+=2)ctx.lineTo(x,getY(x));
+  }
 
-    // Close menu on link click
-    document.querySelectorAll('.mobile-link, .mobile-menu .btn').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
+  function fillFade(){
+    ctx.beginPath();
+    ctx.moveTo(0,getY(0));
+    for(var x=2;x<=cv.width;x+=2)ctx.lineTo(x,getY(x));
+    ctx.lineTo(cv.width,cv.height);
+    ctx.lineTo(0,cv.height);
+    ctx.closePath();
+    var g=ctx.createLinearGradient(0,cv.height*0.38,0,cv.height);
+    g.addColorStop(0,'rgba(0,0,0,.88)');
+    g.addColorStop(1,'rgba(0,0,0,1)');
+    ctx.fillStyle=g;
+    ctx.fill();
+  }
 
-    // ── REVEAL on scroll (IntersectionObserver) ───
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  function frame(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    var hs=(t*40)%360;
+    // halo
+    drawLine();ctx.strokeStyle=buildGrad(hs,.13);ctx.lineWidth=44;ctx.lineCap='round';ctx.stroke();
+    // glow
+    drawLine();ctx.strokeStyle=buildGrad(hs,.35);ctx.lineWidth=18;ctx.stroke();
+    // line
+    drawLine();ctx.strokeStyle=buildGrad(hs,1);ctx.lineWidth=4;ctx.stroke();
+    // white thread
+    drawLine();ctx.strokeStyle='rgba(255,255,255,.75)';ctx.lineWidth=1;ctx.stroke();
+    // fade below
+    fillFade();
+    t+=0.022;
+    raf=requestAnimationFrame(frame);
+  }
 
-    revealEls.forEach(el => observer.observe(el));
-
-    // Hero elements visible immediately (above fold)
-    document.querySelectorAll('.hero .reveal').forEach(el => {
-      setTimeout(() => el.classList.add('visible'), 100);
-    });
-
-    // ── FAQ accordion ─────────────────────────────
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const answer = item.querySelector('.faq-answer');
-        const isOpen = item.classList.contains('open');
-
-        // Close all
-        document.querySelectorAll('.faq-item').forEach(i => {
-          i.classList.remove('open');
-          i.querySelector('.faq-answer').style.maxHeight = '0';
-          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-
-        // Open clicked if it was closed
-        if (!isOpen) {
-          item.classList.add('open');
-          const inner = answer.querySelector('.faq-answer-inner');
-          answer.style.maxHeight = inner.scrollHeight + 'px';
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // ── Smooth scroll for anchor links ───────────
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href').slice(1);
-        if (!id) return;
-        const target = document.getElementById(id);
-        if (!target) return;
-        e.preventDefault();
-        const offset = 108; // topbar + navbar height
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      });
-    });
-  </script>
+  var obs=new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){if(!raf)frame();}
+    else{cancelAnimationFrame(raf);raf=null;}
+  });
+  obs.observe(cv);
+  frame();
+})();
+</script>
 </body>
 </html>
